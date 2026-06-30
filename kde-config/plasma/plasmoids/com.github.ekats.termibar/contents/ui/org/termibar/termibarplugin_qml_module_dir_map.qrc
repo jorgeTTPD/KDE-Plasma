@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="/">
+    <file alias="/qt/qml/org/termibar">/home/jorge/termibar/build/org/termibar</file>
+
+  </qresource>
+</RCC>

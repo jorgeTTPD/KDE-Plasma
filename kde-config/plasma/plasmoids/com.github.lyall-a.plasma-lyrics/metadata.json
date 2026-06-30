@@ -1,0 +1,21 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "git@lyall.lol",
+                "Name": "Lyall"
+            }
+        ],
+        "Category": "Multimedia",
+        "Description": "Displays song lyrics",
+        "Icon": "view-media-lyrics",
+        "Id": "com.github.lyall-a.plasma-lyrics",
+        "License": "GPL-3.0",
+        "Name": "Lyrics",
+        "Version": "1.5",
+        "Website": "https://github.com/Lyall-A/Plasma-Lyrics",
+        "BugReportUrl": "https://github.com/Lyall-A/Plasma-Lyrics/issues"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "KPackageStructure": "Plasma/Applet"
+}

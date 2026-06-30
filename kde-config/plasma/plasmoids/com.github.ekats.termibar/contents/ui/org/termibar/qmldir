@@ -1,0 +1,8 @@
+module org.termibar
+linktarget termibarplugin
+optional plugin termibarplugin
+classname org_termibarPlugin
+typeinfo termibarplugin.qmltypes
+prefer :/qt/qml/org/termibar/
+depends QtQuick
+

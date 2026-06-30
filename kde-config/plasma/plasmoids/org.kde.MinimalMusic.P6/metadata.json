@@ -1,0 +1,24 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "adolfo@librepixels.com",
+                "Name": "zayronxio"
+            }
+        ],
+        "Name": "Music Minimal",
+        "Id": "org.kde.MinimalMusic.P6",
+        "Description": "minimalist widget, with information about the track being played, based on the NowPlaylis widget by nhilistdev",
+        "Category": "Multimedia",
+        "Icon": "applications-multimedia",
+        "EnabledByDefault": true,
+        "License": "GPL-3.0+",
+        "ServiceTypes": [
+            "Plasma/Applet"
+        ],
+        "Version": "2.3",
+        "Website": "https://store.kde.org/p/2141133"
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-MainScript": "ui/main.qml"
+}

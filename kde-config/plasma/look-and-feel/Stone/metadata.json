@@ -1,0 +1,28 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "rkstrdee@gmail.com",
+                "Name": "Dharam Dhurandhar"
+            }
+        ],
+        "Category": "Global Themes (Plasma 6)",
+        "ServiceTypes": [
+            "Plasma/LookAndFeel"
+        ],
+        "EnabledByDefault": true,
+        "Name": "Stone",
+        "Description": "A sand inspired Theme ",
+        "Id": "Stone",
+        "Version": "3.0",
+        "License": "GPL-2.0+",
+        "Website": "https://github.com/rkstrdee/Stone"
+    },
+    "X-KPackage-Dependencies": [
+        "kns://colorschemes.knsrc/api.kde-look.org/1918402",
+        "kns://plasma-themes.knsrc/api.kde-look.org/1918405",
+        "kns://icons.knsrc/api.kde-look.org/1279924",
+        "kns://wallpaper.knsrc/api.kde-look.org/1918450"
+    ]
+}

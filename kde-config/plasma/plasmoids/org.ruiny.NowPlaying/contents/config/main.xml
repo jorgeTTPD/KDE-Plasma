@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <kcfgfile name=""/>
+    <group name="General">
+        <entry name="opacity" type="Int">
+            <label>Opacity</label>
+            <default>100</default>
+        </entry>
+        <entry name="fontFamily" type="String">
+            <label>Font family</label>
+            <default>Noto Sans</default>
+        </entry>
+        <entry name="labelFontSize" type="Int">
+            <label>Now Playing label font size</label>
+            <default>16</default>
+        </entry>
+        <entry name="titleFontSize" type="Int">
+            <label>Track title font size</label>
+            <default>28</default>
+        </entry>
+        <entry name="artistFontSize" type="Int">
+            <label>Track artist font size</label>
+            <default>26</default>
+        </entry>
+        <entry name="labelVisibilityMode" type="String">
+            <label>Now Playing label visibility mode</label>
+            <default>auto</default>
+        </entry>
+        <entry name="labelPlacement" type="String">
+            <label>Now Playing label placement</label>
+            <default>left</default>
+        </entry>
+        <entry name="labelText" type="String">
+            <label>Now Playing label text</label>
+            <default><![CDATA[NOW
+PLAYING]]></default>
+        </entry>
+        <entry name="useLabelArtwork" type="Bool">
+            <label>Show track image when available</label>
+            <default>false</default>
+        </entry>
+        <entry name="imageBorderRadius" type="Int">
+            <label>Image border radius</label>
+            <default>8</default>
+        </entry>
+        <entry name="backgroundStyle" type="String">
+            <label>Background style</label>
+            <default>custom</default>
+        </entry>
+        <entry name="backgroundColor" type="String">
+            <label>Background color</label>
+            <default>transparent</default>
+        </entry>
+        <entry name="backgroundRadius" type="Int">
+            <label>Background radius</label>
+            <default>0</default>
+        </entry>
+        <entry name="foregroundColor" type="String">
+            <label>Foreground color</label>
+            <default>white</default>
+        </entry>
+        <entry name="textShadowEnabled" type="Bool">
+            <label>Enable text shadow</label>
+            <default>false</default>
+        </entry>
+        <entry name="showMediaControls" type="Bool">
+            <label>Show media controls</label>
+            <default>true</default>
+        </entry>
+        <entry name="trackTextVerticalSpacing" type="Int">
+            <label>Track text vertical spacing</label>
+            <default>5</default>
+        </entry>
+        <entry name="labelVerticalSpacing" type="Int">
+            <label>Now Playing label vertical spacing</label>
+            <default>0</default>
+        </entry>
+        <entry name="separatorGapLabel" type="Int">
+            <label>Separator gap from label rail</label>
+            <default>4</default>
+        </entry>
+        <entry name="separatorGapTrack" type="Int">
+            <label>Separator gap from track text</label>
+            <default>4</default>
+        </entry>
+        <entry name="separatorHeight" type="Int">
+            <label>Separator height percent</label>
+            <default>90</default>
+        </entry>
+        <entry name="hideSeparator" type="Bool">
+            <label>Hide separator</label>
+            <default>false</default>
+        </entry>
+    </group>
+</kcfg>

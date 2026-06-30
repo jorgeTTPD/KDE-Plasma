@@ -1,0 +1,15 @@
+gtk-engine-murrine
+gtk2
+holehe
+libinput-gestures
+opencode-bin
+openssl-1.1
+pipe-viewer-git
+python-pywalfox
+python-screeninfo
+spotify
+spotify-tui-bin
+whatscli-git
+yay
+zen-browser-bin
+zulu-jdk-fx-bin

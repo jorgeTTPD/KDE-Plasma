@@ -1,0 +1,22 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "github@vkaras.de",
+                "Name": "v'Karas"
+            }
+        ],
+        "Category": "Date and Time",
+        "Description": "A modern looking clock widget for your Desktop!",
+        "Icon": "clock",
+        "Id": "com.github.vKaras1337.modernclock",
+        "License": "GPLv3",
+        "Name": "Advanced Modern Clock",
+        "Version": "2.1.0",
+        "Website": "https://github.com/vKaras1337/kde_modernclock"
+        
+    },
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-Provides": "org.kde.plasma.time,org.kde.plasma.date",
+    "KPackageStructure": "Plasma/Applet"
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0 http://www.kde.org/standards/kcfg/1.0/kcfg.xsd">
+    <kcfgfile name=""/>
+
+    <group name="General">
+        <entry name="useFixedSize" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="fixedWidth" type="Int">
+            <default>300</default>
+        </entry>
+        <entry name="fixedHeight" type="Int">
+            <default>150</default>
+        </entry>
+        <entry name="margin" type="Int">
+            <default>5</default>
+        </entry>
+        <entry name="fontFamily" type="String">
+            <default>Sans Serif</default>
+        </entry>
+        <entry name="fontSize" type="Int">
+            <default>13</default>
+        </entry>
+        <entry name="fontColor" type="Color">
+            <default>#FFFFFF</default>
+        </entry>
+        <entry name="fontBold" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="fontItalic" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="useCustomBackground" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="backgroundColor" type="Color">
+            <default>#141414</default>
+        </entry>
+        <entry name="backgroundRadius" type="Int">
+            <default>10</default>
+        </entry>
+        <entry name="fade" type="Int">
+            <default>150</default>
+        </entry>
+        <entry name="noMedia" type="String">
+            <default></default>
+        </entry>
+        <entry name="noLyrics" type="String">
+            <default>No lyrics</default>
+        </entry>
+        <entry name="offset" type="Int">
+            <default>-500</default>
+        </entry>
+        <entry name="allowSearch" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="horizontalAlignLeft" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="horizontalAlignCenter" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="horizontalAlignRight" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="verticalAlignTop" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="verticalAlignCenter" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="verticalAlignBottom" type="Bool">
+            <default>false</default>
+        </entry>
+    </group>
+</kcfg>
