@@ -1,41 +1,47 @@
 #!/bin/bash
+# bspwmrc — stack bspwm + sxhkd + picom + polybar (X11)
+# Logs en ~/.local/state/bspwm/
 
-# 1. Iniciar gestor de atajos
-killall sxhkd
-sxhkd -c ~/.config/sxhkd/sxhkdrc &
+STATE="$HOME/.local/state/bspwm"
+mkdir -p "$STATE"
 
-# 1.1 Daemon de notificaciones
-killall dunst
-dunst &
+start() { # start <proceso> <comando...>: reinicia con guard y log
+  local proc="$1"; shift
+  pkill -x "$proc" 2>/dev/null
+  "$@" >>"$STATE/$proc.log" 2>&1 &
+}
 
-# 1.2 Configuración del Touchpad (Tapping + Velocidad)
-# Habilita el clic con toque y ajusta velocidad en todos los dispositivos touchpad detectados
-xinput list | grep -i "touchpad" | cut -d '=' -f 2 | cut -f 1 | while read id; do
+# --- Atajos y notificaciones ---
+start sxhkd sxhkd -c ~/.config/sxhkd/sxhkdrc
+start dunst dunst
+
+# --- Touchpad (tap-to-click + velocidad) ---
+xinput list | grep -i "touchpad" | cut -d '=' -f 2 | cut -f 1 | while read -r id; do
   xinput set-prop "$id" "libinput Tapping Enabled" 1
   xinput set-prop "$id" "libinput Accel Speed" 0.5
 done &
 
-# 1.3 Gestos del touchpad (libinput-gestures)
-libinput-gestures-setup start &
+# Gestos del touchpad (tres dedos)
+libinput-gestures-setup restart >>"$STATE/libinput-gestures.log" 2>&1 &
 
-# 1.5 Cargar recursos X
-xrdb -merge ~/.Xresources &
+# Recursos X
+xrdb -merge ~/.Xresources 2>>"$STATE/xrdb.log" &
 
-# 1.8 Clipboard manager (greenclip)
+# Portapapeles + tema Qt
 export PATH="$HOME/.local/bin:$PATH"
 export QT_QPA_PLATFORMTHEME=qt6ct
-killall greenclip 2>/dev/null
-greenclip daemon &
+start greenclip greenclip daemon
 
-# 2. Iniciar compositor
-killall picom
-picom --config ~/.config/picom/picom.conf -b &
+# Compositor (sin -b: el & de start() ya lo daemoniza y captura su log)
+start picom picom --config ~/.config/picom/picom.conf
 
-# 3. Lanzar barra (Polybar)
-~/.config/polybar/launch.sh &
+# Barra
+~/.config/polybar/launch.sh >>"$STATE/polybar.log" 2>&1 &
 
-# 4. Ajustes de escritorio
+# --- Monitores y escritorios ---
 bspc monitor -d I II III IV V
+
+# Bordes y gaps
 bspc config border_width 0
 bspc config window_gap 10
 bspc config split_ratio 0.50
@@ -46,44 +52,46 @@ bspc config borderless_monocle true
 bspc config gapless_monocle true
 bspc config top_padding 28
 
-# Opciones adicionales estilo Hyprland
-bspc config border_radius 12
+# Puntero estilo Hyprland (super + click para mover/redimensionar)
 bspc config pointer_modifier super
 bspc config pointer_action1 move
 bspc config pointer_action2 resize_side
 bspc config pointer_action3 resize_corner
 
-# Reglas de ventanas
+# --- Reglas de ventanas ---
 bspc rule -a ffplay state=floating sticky=on focus=off layer=below
 bspc rule -a Yad:yad state=floating sticky=on top=on focus=off rectangle=660+35+600+22
 bspc rule -a Pavucontrol state=floating sticky=on
 bspc rule -a File-roller state=floating
 bspc rule -a Nm-connection-editor state=floating
 
-# Panel de sistema (sysmenu, Super+S): flotante y anclado a la izquierda
-_sm_res="$(xrandr --current 2>/dev/null | awk '/\*/{print $1; exit}')"
-_sm_w="${_sm_res%x*}"; _sm_h="${_sm_res#*x}"
-case "${_sm_w}${_sm_h}" in ""|*[!0-9]*) _sm_w=1366; _sm_h=768 ;; esac
-_sm_pw=$(( _sm_w * 42 / 100 )); [ "$_sm_pw" -lt 430 ] && _sm_pw=430
-bspc rule -a URxvt:sysmenu-term state=floating sticky=on rectangle="${_sm_pw}x$(( _sm_h - 40 ))+4+30" focus=on
-unset _sm_res _sm_w _sm_h _sm_pw
+# Menu de sistema (Super+S): flotante anclado a la izquierda (~42% del ancho, min. 430px)
+sysmenu_rect() {
+  local res w h pw
+  res="$(xrandr --current 2>/dev/null | awk '/\*/{print $1; exit}')"
+  w="${res%x*}"; h="${res#*x}"
+  case "$w$h" in ""|*[!0-9]*) w=1366; h=768 ;; esac
+  pw=$(( w * 42 / 100 )); [ "$pw" -lt 430 ] && pw=430
+  echo "${pw}x$(( h - 40 ))+4+30"
+}
+bspc rule -a URxvt:sysmenu-term state=floating sticky=on rectangle="$(sysmenu_rect)" focus=on
 
-# 5. Fondo de pantalla (aleatorio cada 10 min)
-killall xwinwrap ffplay 2>/dev/null
+# --- Fondo de pantalla (aleatorio cada 10 min) ---
+pkill -x xwinwrap 2>/dev/null; pkill -x ffplay 2>/dev/null
 rm -f /tmp/wallpaper-video.pid
-~/.config/scripts/wallpaper.sh daemon &
+~/.config/scripts/wallpaper.sh daemon >>"$STATE/wallpaper.log" 2>&1 &
 
-# 5.1 Miniaturas de escritorios para el overview (super+Tab)
+# Miniaturas de escritorios para el overview (Super+Tab)
 pkill -f "[d]esktop-thumbs-daemon.sh" 2>/dev/null
-~/.config/scripts/desktop-thumbs-daemon.sh &
+~/.config/scripts/desktop-thumbs-daemon.sh >>"$STATE/desktop-thumbs.log" 2>&1 &
 
-# 6. Auto-lock y apagado de pantalla tras 7 min
+# --- Auto-lock y apagado de pantalla tras 7 min ---
 xset s 420 420
 xset dpms 420 420 420
-xss-lock -- betterlockscreen -l -e -f &
+start xss-lock xss-lock -- betterlockscreen -l -e -f
 
-# 7. Puente de audio Meet (MeetMusic/MeetMicMix) persistente
-~/.config/scripts/audiomenu.sh ensure &
+# --- Puente de audio Meet (persistente) ---
+~/.config/scripts/audiomenu.sh ensure >>"$STATE/audiomenu.log" 2>&1
 if ! tmux has-session -t meet-bridge 2>/dev/null; then
     tmux new-session -d -s meet-bridge "$HOME/.config/scripts/meet-bridge-ensure.sh"
 fi
