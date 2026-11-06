@@ -1,0 +1,97 @@
+configuration {
+    show-icons: false;
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+* {
+    background:     #1e1e2e0D;
+    background-alt: #000000CC;
+    foreground:     #cdd6f4FF;
+    selected:       #89b4faFF;
+    border:         #3a3a3aCC;
+    dark:           #1e1e2eFF;
+    muted:          #6c7086FF;
+}
+
+window {
+    transparency:               "real";
+    location:                   center;
+    anchor:                     center;
+    width:                      600px;
+    border:                     1px solid;
+    border-color:               @border;
+    border-radius:              10px;
+    background-color:           @background;
+}
+
+mainbox {
+    enabled:                    true;
+    spacing:                    5px;
+    padding:                    16px;
+    background-color:           transparent;
+    children:                   [ "inputbar", "listview" ];
+}
+
+inputbar {
+    enabled:                    true;
+    padding:                    8px 12px;
+    border-radius:              10px;
+    background-color:           @background-alt;
+    text-color:                 @foreground;
+    children:                   [ "prompt", "entry" ];
+}
+
+prompt {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 @selected;
+    font:                       "JetBrainsMono Nerd Font Bold 12";
+}
+
+entry {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 @foreground;
+    cursor:                     "text";
+    placeholder:                "Buscar atajo...";
+    placeholder-color:          @muted;
+}
+
+listview {
+    enabled:                    true;
+    columns:                    1;
+    lines:                      15;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    spacing:                    2px;
+    background-color:           transparent;
+}
+
+element {
+    enabled:                    true;
+    padding:                    4px 8px;
+    border-radius:              10px;
+    background-color:           transparent;
+    text-color:                 @foreground;
+    cursor:                     "pointer";
+}
+
+element selected.normal {
+    background-color:           @selected;
+    text-color:                 @dark;
+}
+
+element alternate.normal {
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+
+element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
+}

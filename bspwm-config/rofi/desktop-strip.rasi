@@ -1,0 +1,93 @@
+configuration {
+    modi: "dmenu";
+    show-icons: true;
+    icon-theme: "Papirus";
+    font: "JetBrainsMono Nerd Font 10";
+}
+
+* {
+    background: #1e1e2e0D;
+    background-alt: #000000CC;
+    foreground: #cdd6f4FF;
+    selected: #89b4faFF;
+    border: #3a3a3aCC;
+    dark: #1e1e2eFF;
+    muted: #6c7086FF;
+}
+
+window {
+    transparency: "real";
+    location: south;
+    anchor: south;
+    fullscreen: false;
+    width: 1150px;
+    x-offset: 0px;
+    y-offset: -40px;
+    enabled: true;
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: @border;
+    background-color: @background;
+    cursor: "default";
+}
+
+mainbox {
+    enabled: true;
+    spacing: 0px;
+    padding: 4px;
+    background-color: transparent;
+    children: [ "listview" ];
+}
+
+listview {
+    enabled: true;
+    columns: 5;
+    lines: 1;
+    cycle: false;
+    dynamic: false;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    spacing: 6px;
+    padding: 0px;
+    background-color: transparent;
+    text-color: @foreground;
+    cursor: "default";
+}
+
+element {
+    enabled: true;
+    orientation: vertical;
+    spacing: 0px;
+    padding: 1px;
+    border: 1px solid;
+    border-color: transparent;
+    border-radius: 12px;
+    background-color: transparent;
+    text-color: @foreground;
+    cursor: "pointer";
+}
+
+element selected.normal {
+    background-color: transparent;
+    border: 1px solid;
+    border-color: @selected;
+    text-color: @foreground;
+}
+
+element-icon {
+    size: 180px;
+    border-radius: 10px;
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+}
+
+element-text {
+    enabled: false;
+    background-color: transparent;
+    text-color: inherit;
+    cursor: inherit;
+}

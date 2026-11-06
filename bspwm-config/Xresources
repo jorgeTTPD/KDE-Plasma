@@ -1,0 +1,53 @@
+! ---- Apariencia: transparente + Catppuccin Mocha ----
+URxvt.termName: rxvt-unicode-256color
+URxvt.depth: 32
+URxvt.background: [5]#1e1e2e
+URxvt.foreground: #cdd6f4
+URxvt.cursorColor: #f5e0dc
+
+! ---- Fuente ----
+URxvt.font: xft:JetBrainsMono Nerd Font:size=11
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+
+! ---- Scrollback ----
+URxvt.saveLines: 10000
+URxvt.scrollBar: false
+URxvt.scrollTtyOutput: false
+URxvt.scrollWithBuffer: true
+URxvt.scrollTtyKeypress: true
+
+! ---- Compatibilidad y copiar/pegar ----
+URxvt.iso14755: false
+URxvt.perl-ext-common: default,-confirm-paste,matcher,selection-to-clipboard,eval
+URxvt.keysym.Control-Shift-V: eval:paste_clipboard
+URxvt.keysym.Control-Alt-v: builtin:
+
+! ---- URLs clickeables (Ctrl+Shift+E) ----
+URxvt.keysym.Control-Shift-E: perl:url-select:select_next
+
+! ---- Atajos de teclado ----
+URxvt.keysym.M-e: perl:keyboard-select:activate
+URxvt.keysym.M-Up: resize-font:smaller
+URxvt.keysym.M-Down: resize-font:larger
+
+! ---- Borde ultra delgado ----
+URxvt.border: 0
+
+! ---- Colores Catppuccin Mocha ----
+URxvt.color0:  #45475a
+URxvt.color1:  #f38ba8
+URxvt.color2:  #a6e3a1
+URxvt.color3:  #f9e2af
+URxvt.color4:  #89b4fa
+URxvt.color5:  #f5c2e7
+URxvt.color6:  #94e2d5
+URxvt.color7:  #bac2de
+URxvt.color8:  #585b70
+URxvt.color9:  #f38ba8
+URxvt.color10: #a6e3a1
+URxvt.color11: #f9e2af
+URxvt.color12: #89b4fa
+URxvt.color13: #f5c2e7
+URxvt.color14: #94e2d5
+URxvt.color15: #a6adc8

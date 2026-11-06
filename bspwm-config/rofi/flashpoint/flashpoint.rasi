@@ -1,0 +1,60 @@
+/* Flashpoint: splash estatico centrado (Super+Y) — tarjeta foto + cita */
+
+configuration {
+    modi: "dmenu";
+    show-icons: false;
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+* {
+    background: #1e1e2e0D;
+    background-alt: #000000CC;
+    foreground: #cdd6f4FF;
+    selected: #89b4faFF;
+    border: #3a3a3aCC;
+    dark: #1e1e2eFF;
+    muted: #a6adc8FF;
+}
+
+window {
+    transparency: "real";
+    location: center;
+    anchor: center;
+    fullscreen: false;
+    width: 592px;
+    x-offset: 0px;
+    y-offset: 0px;
+    enabled: true;
+    border: 1px solid;
+    border-radius: 16px;
+    border-color: @border;
+    background-color: @background;
+    background-image: url("/home/jorge/.config/rofi/flashpoint/flashpoint-card4.png", width);
+    cursor: "default";
+}
+
+mainbox {
+    enabled: true;
+    spacing: 0px;
+    padding: 0px;
+    background-color: transparent;
+    children: [ "message" ];
+}
+
+message {
+    enabled: true;
+    margin: 0px;
+    padding: 417px 16px 0px 16px;
+    background-color: transparent;
+    horizontal-align: 0.5;
+}
+
+textbox {
+    enabled: true;
+    background-color: transparent;
+    padding: 0px;
+    text-color: @foreground;
+    font: "JetBrainsMono Nerd Font Italic 11";
+    horizontal-align: 0.5;
+    vertical-align: 0.5;
+}

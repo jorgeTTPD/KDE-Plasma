@@ -1,0 +1,109 @@
+configuration {
+    show-icons:                 false;
+    font:                       "JetBrainsMono Nerd Font 12";
+    fixed-num-lines:            false;
+}
+
+* {
+    background:     #1e1e2e0D;
+    background-alt: #000000CC;
+    foreground:     #cdd6f4FF;
+    selected:       #89b4faFF;
+    border:         #3a3a3aCC;
+    dark:           #1e1e2eFF;
+    muted:          #6c7086FF;
+}
+
+window {
+    transparency:               "real";
+    location:                   west;
+    anchor:                     west;
+    fullscreen:                 false;
+    width:                      460px;
+    x-offset:                   8px;
+    y-offset:                   0px;
+
+    enabled:                    true;
+    border:                     1px solid;
+    border-radius:              10px;
+    border-color:               @border;
+    background-color:           @background;
+    cursor:                     "default";
+}
+
+mainbox {
+    enabled:                    true;
+    spacing:                    6px;
+    padding:                    10px;
+    background-color:           transparent;
+    children:                   [ "listview" ];
+}
+
+inputbar {
+    enabled:                    true;
+    spacing:                    10px;
+    padding:                    6px 10px;
+    border-radius:              10px;
+    background-color:           @background-alt;
+    text-color:                 @foreground;
+    children:                   [ "entry" ];
+}
+
+entry {
+    enabled:                    true;
+    background-color:           transparent;
+    text-color:                 @foreground;
+    cursor:                     "text";
+    placeholder:                "Escribe para buscar...";
+    placeholder-color:          @muted;
+    font:                       "JetBrainsMono Nerd Font 12";
+}
+
+listview {
+    enabled:                    true;
+    columns:                    1;
+    lines:                      9;
+    cycle:                      true;
+    dynamic:                    true;
+    scrollbar:                  false;
+    layout:                     vertical;
+    reverse:                    false;
+    fixed-height:               false;
+    fixed-columns:              true;
+
+    spacing:                    4px;
+    background-color:           transparent;
+    text-color:                 @foreground;
+    cursor:                     "default";
+}
+
+element {
+    enabled:                    true;
+    spacing:                    12px;
+    padding:                    6px 10px;
+    margin:                     1px 0px;
+    border-radius:              8px;
+    background-color:           transparent;
+    text-color:                 @foreground;
+    cursor:                     "pointer";
+}
+
+element selected.normal {
+    background-color:           @selected;
+    text-color:                 @dark;
+}
+
+element alternate.normal {
+    background-color:           transparent;
+    text-color:                 @foreground;
+}
+
+element-text {
+    background-color:           transparent;
+    text-color:                 inherit;
+    cursor:                     inherit;
+    vertical-align:             0.5;
+    horizontal-align:           0.0;
+    padding:                    2px 4px;
+    font:                       "JetBrainsMono Nerd Font 12";
+}

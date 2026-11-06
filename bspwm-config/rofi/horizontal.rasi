@@ -1,0 +1,31 @@
+@import "iconmenu.rasi"
+
+configuration { fixed-num-lines : false; }
+
+/*****----- Main Window -----*****/
+window {
+    	location		: east;
+    	width			: 340px;
+	x-offset		: -10px;
+    	y-offset		: 0px;
+	padding			: 0px;
+}
+
+/*****----- Main Box -----*****/
+mainbox { children : [ "listview", "inputbar" ]; padding : 0px; orientation : horizontal; }
+
+inputbar { expand : false; padding : 0px; children: [ "prompt" ]; }
+
+prompt { padding : calc( 1% ); horizontal-align : 0.5; vertical-align : 0.5; }
+
+/*****----- Listview -----*****/
+listview {
+	spacing		 	: 2px;
+	layout			: horizontal;
+	fixed-height		: false;
+	fixed-colums		: false;
+    	columns   	 	: 1;
+	lines			: 4;
+}
+
+element-text { font : "feather 23"; }
